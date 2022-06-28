@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -9,6 +10,21 @@ class BestBooks extends React.Component {
   }
 
   /* TODO: Make a GET request to your API to fetch all the books from the database  */
+  getBooks = async (e) => {
+    e.preventDefault();
+
+    try{
+      let results = await axios.get(`${process.env.REACT_APP_server}/books`)
+      this.setState({
+        books: results,
+      })
+      console.log(this.state.books)
+    } catch (error) {
+      this.setState({
+      bookErrorMessage: `An error occured: ${error.response.status}, ${error.response.data}`
+      })
+    }
+  }
 
   render() {
 
