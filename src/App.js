@@ -21,6 +21,11 @@ class App extends React.Component {
               element={<BestBooks />}
             >
             </Route>
+            <Route 
+              exact path="/about"
+              element={<About />}
+            >
+            </Route>
             {/* PLACEHOLDER: add a route with a path of '/about' that renders the `About` component */}
           </Routes>
           <Footer />
