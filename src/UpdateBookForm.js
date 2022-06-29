@@ -1,26 +1,19 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-// import axios from 'axios';
 
-// let SERVER = process.env.REACT_APP_SERVER;
+class UpdateBookForm extends React.Component {
 
-// Component code credit: https://react-bootstrap.github.io/components/modal/
-class NewBookForm extends React.Component {
-  onSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
-    let newBook = {
-      title: e.target.title.value,
-      description: e.target.description.value,
-      status: e.target.status.value === 'true',
-      img: e.target.img.value 
+    let bookUpdate = {
+      title: e.target.title.value || this.props.book.title,
+      description: e.target.description.value || this.props.book.description,
+      status: e.target.status.value || this.props.book.status,
+      _id: this.props.book._id,
+      __v: this.props.book.__v
     }
-    this.props.postBook(newBook);
-    this.props.getBooks();
+    this.props.updateBook(bookUpdate);
   }
-
-
-
-
 
   render() {
     return (<>
@@ -30,14 +23,14 @@ class NewBookForm extends React.Component {
               this.props.handleClose();
             }}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Update Book</Modal.Title>
           </Modal.Header>
           <Modal.Body>
               <Form.Group className="mb-3" controlId="title">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Movie title"
+                  placeholder={this.props.book.title}
                   autoFocus
                 />
               </Form.Group>
@@ -45,6 +38,7 @@ class NewBookForm extends React.Component {
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                   type="text"
+                  placeholder={this.props.book.description}
                   autoFocus
                 />
               </Form.Group>
@@ -52,7 +46,7 @@ class NewBookForm extends React.Component {
                 <Form.Label>Available in stores</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="true / false"
+                  placeholder={this.props.book.status}
                   autoFocus
                 />
               </Form.Group>
@@ -60,6 +54,7 @@ class NewBookForm extends React.Component {
                 <Form.Label>Image URL</Form.Label>
                 <Form.Control
                   type="text"
+                  placeholder={this.props.book.img}
                   autoFocus
                 />
               </Form.Group>
@@ -69,15 +64,13 @@ class NewBookForm extends React.Component {
               Close
             </Button>
             <Button type="submit" variant="primary">
-              Save Changes
+              Update book
             </Button>
           </Modal.Footer>
         </Form>
       </Modal>
     </>);
-  }
+  }    
 }
 
-
-
-export default NewBookForm;
+export default UpdateBookForm;

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Carousel, Image, Button } from 'react-bootstrap';
 import AddBook from './AddBook';
 import './BestBooks.css';
+import UpdateBookForm from './UpdateBookForm';
 // import About from './About.js';
 
 
@@ -59,20 +60,48 @@ class BestBooks extends React.Component {
     }
   }
 
+  updateBook = async (bookUpdate) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/books/${bookUpdate._id}`;
+      let updatedBook = await axios.put(url, bookUpdate);
+      let updatedBookArray = this.state.books.map(currentBook => {
+        return currentBook._id === bookUpdate._id
+          ? bookUpdate.data
+          : currentBook
+      });
+      this.setState({
+        books: updatedBookArray
+      });
+    } catch (error) {
+      console.log('we have an error: ', error.response.data);
+    }
+  }
+
   render() {
 
     /* TODO: render all the books in a Carousel */
     let carouselItems =
       this.state.books.length ? this.state.books.map((book, _id) => (
-          <Carousel.Item className="my-carousel-item" key={book._id}>
-            <Image className="d-block item" src={book.img} alt={book.title} />
-            <Carousel.Caption className="caption">
-              <h3>{book.title}</h3>
-              <p>{book.description}</p>
-              <p>Available in stores: {book.status ? 'yes' : 'no'} </p>
-              <Button variant="danger" onClick={() => this.deleteBook(book._id)}>Delete book</Button>
-            </Carousel.Caption>
-          </Carousel.Item>
+        <Carousel.Item className="my-carousel-item" key={book._id}>
+          <Image className="d-block item" src={book.img} alt={book.title} />
+          <Carousel.Caption className="caption">
+            <h3>{book.title}</h3>
+            <p>{book.description}</p>
+            <p>Available in stores: {book.status ? 'yes' : 'no'} </p>
+            <Button variant="danger" onClick={() => this.deleteBook(book._id)}>Delete book</Button>
+            <UpdateBookForm
+              show={this.state.revealNewBookForm}
+              handleClose={this.formSubmit}
+              getBooks={this.props.getBooks}
+              postBook={this.props.postBook}
+              updateBook = {this.updateBook}
+            />
+            <Button type="submit" variant="primary">
+              Update book
+            </Button>
+          </Carousel.Caption>
+
+        </Carousel.Item>
       )) : (<h3>No Books Found :</h3>)
     return (
       <>
@@ -89,7 +118,9 @@ class BestBooks extends React.Component {
           <AddBook
             getBooks={this.getBooks}
             postBook={this.postBook}
+            updateBook={this.updateBook}
           />
+
         </div>
       </>
     )
