@@ -1,8 +1,8 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 
-let SERVER = process.env.REACT_APP_SERVER;
+// let SERVER = process.env.REACT_APP_SERVER;
 
 // Component code credit: https://react-bootstrap.github.io/components/modal/
 class NewBookForm extends React.Component {
