@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Carousel, Image, Container, Route } from 'react-bootstrap';
+import AddBook from './AddBook';
 import './BestBooks.css';
 // import About from './About.js';
 
@@ -59,6 +60,7 @@ class BestBooks extends React.Component {
           <Carousel>
             {carouselItems}
           </Carousel>
+          <AddBook />
         </div>
       </>
     )
