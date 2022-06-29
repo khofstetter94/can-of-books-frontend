@@ -1,8 +1,8 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 
-let SERVER = process.env.REACT_APP_SERVER;
+// let SERVER = process.env.REACT_APP_SERVER;
 
 // Component code credit: https://react-bootstrap.github.io/components/modal/
 class NewBookForm extends React.Component {
@@ -12,22 +12,15 @@ class NewBookForm extends React.Component {
       title: e.target.title.value,
       description: e.target.description.value,
       status: e.target.status.value === 'true',
-      img: e.target.img.value
+      img: e.target.img.value 
     }
-    this.postBook(newBook);
+    this.props.postBook(newBook);
     this.props.getBooks();
   }
 
 
 
-  postBook = async (newBookObj) => {
-    try {
-      let url = `${SERVER}/books`;
-      await axios.post(url, newBookObj);
-    } catch(error) {
-      console.log('we have an error: ', error.response.data);
-    }
-  }
+
 
   render() {
     return (<>
