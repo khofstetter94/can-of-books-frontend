@@ -64,9 +64,10 @@ class BestBooks extends React.Component {
     try {
       let url = `${process.env.REACT_APP_SERVER}/books/${bookUpdate._id}`;
       let updatedBook = await axios.put(url, bookUpdate);
+      console.
       let updatedBookArray = this.state.books.map(currentBook => {
         return currentBook._id === bookUpdate._id
-          ? bookUpdate.data
+          ? updatedBook.data
           : currentBook
       });
       this.setState({
