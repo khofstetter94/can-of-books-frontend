@@ -1,0 +1,14 @@
+.my-carousel {
+  width: 60%;
+  margin: auto;
+}
+
+.my-carousel-item .item {
+  width: 60%;
+  margin: auto;
+}
+
+.my-carousel-item .caption {
+  width: 50%;
+  margin: auto;
+}
