@@ -23,6 +23,7 @@ class AddBook extends React.Component {
         <NewBookForm
           show={this.state.revealNewBookForm}
           handleClose={this.formSubmit}
+          getBooks={this.props.getBooks}
         />
         <button onClick={this.buttonClick}>Add book</button>
       </div>
