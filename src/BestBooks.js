@@ -60,7 +60,7 @@ class BestBooks extends React.Component {
           <Carousel>
             {carouselItems}
           </Carousel>
-          <AddBook />
+          <AddBook getBooks={this.getBooks} />
         </div>
       </>
     )
