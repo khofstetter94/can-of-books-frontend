@@ -17,6 +17,8 @@ class NewBookForm extends React.Component {
     this.postBook(newBook);
   }
 
+
+
   postBook = async (newBookObj) => {
     try {
       let url = `${SERVER}/books`;
@@ -31,12 +33,12 @@ class NewBookForm extends React.Component {
 
   render() {
     return (<>
+    <Form>
       <Modal show={this.props.show} onHide={this.props.handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
             <Form.Group className="mb-3" controlId="title">
               <Form.Label>Title</Form.Label>
               <Form.Control
@@ -67,7 +69,6 @@ class NewBookForm extends React.Component {
                 autoFocus
               />
             </Form.Group>
-          </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={this.props.handleClose}>
@@ -81,6 +82,7 @@ class NewBookForm extends React.Component {
           </Button>
         </Modal.Footer>
       </Modal>
+      </Form>
     </>);
   }
 }
