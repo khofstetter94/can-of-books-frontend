@@ -1,19 +1,32 @@
 import React from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+// import axios from 'axios';
 
+// let SERVER = process.env.REACT_APP_SERVER;
+
+// Component code credit: https://react-bootstrap.github.io/components/modal/
 class UpdateBookForm extends React.Component {
-
-  handleSubmit = (e) => {
+  onSubmit(e) {
     e.preventDefault();
-    let bookUpdate = {
+    let newStatus = this.props.book.status;
+    if (e.target.status.value !== '') {
+      newStatus = e.target.status.value;
+    }
+    let newBook = {
       title: e.target.title.value || this.props.book.title,
       description: e.target.description.value || this.props.book.description,
-      status: e.target.status.value || this.props.book.status,
+      status: newStatus,
+      img: e.target.img.value || this.props.book.img,
       _id: this.props.book._id,
       __v: this.props.book.__v
-    }
-    this.props.updateBook(bookUpdate);
+    };
+    this.props.updateBook(newBook);
+    this.props.getBooks();
   }
+
+
+
+
 
   render() {
     return (<>
@@ -23,7 +36,7 @@ class UpdateBookForm extends React.Component {
               this.props.handleClose();
             }}>
           <Modal.Header closeButton>
-            <Modal.Title>Update Book</Modal.Title>
+            <Modal.Title>Update book</Modal.Title>
           </Modal.Header>
           <Modal.Body>
               <Form.Group className="mb-3" controlId="title">
@@ -46,7 +59,7 @@ class UpdateBookForm extends React.Component {
                 <Form.Label>Available in stores</Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder={this.props.book.status}
+                  placeholder={this.props.book.status ? 'true' : 'false'}
                   autoFocus
                 />
               </Form.Group>
@@ -64,13 +77,15 @@ class UpdateBookForm extends React.Component {
               Close
             </Button>
             <Button type="submit" variant="primary">
-              Update book
+              Save Changes
             </Button>
           </Modal.Footer>
         </Form>
       </Modal>
     </>);
-  }    
+  }
 }
+
+
 
 export default UpdateBookForm;
