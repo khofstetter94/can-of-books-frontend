@@ -4,11 +4,18 @@
 }
 
 .my-carousel-item .item {
-  width: 60%;
+  width: 30%;
   margin: auto;
 }
 
 .my-carousel-item .caption {
   width: 50%;
   margin: auto;
+}
+
+h2 {
+  color:#ff7d00;
+  text-align: center;
+  border: solid;
+  background-color: #78290f;
 }
