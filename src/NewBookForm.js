@@ -12,7 +12,7 @@ class NewBookForm extends React.Component {
       title: e.target.title.value,
       description: e.target.description.value,
       status: e.target.status.value === 'true',
-      img: e.target.img.value 
+      img: e.target.img.value
     }
     this.props.postBook(newBook);
     this.props.getBooks();
@@ -30,7 +30,7 @@ class NewBookForm extends React.Component {
               this.props.handleClose();
             }}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>New book</Modal.Title>
           </Modal.Header>
           <Modal.Body>
               <Form.Group className="mb-3" controlId="title">

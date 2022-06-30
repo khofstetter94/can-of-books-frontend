@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Carousel, Image, Button } from 'react-bootstrap';
 import AddBook from './AddBook';
 import './BestBooks.css';
-import UpdateBookForm from './UpdateBookForm';
+import UpdateBook from './UpdateBook';
 // import About from './About.js';
 
 
@@ -89,24 +89,18 @@ class BestBooks extends React.Component {
             <p>{book.description}</p>
             <p>Available in stores: {book.status ? 'yes' : 'no'} </p>
             <Button variant="danger" onClick={() => this.deleteBook(book._id)}>Delete book</Button>
-            <UpdateBookForm
-              show={this.state.revealNewBookForm}
-              handleClose={this.formSubmit}
-              getBooks={this.props.getBooks}
-              postBook={this.props.postBook}
+            <UpdateBook
+              getBooks={this.getBooks}
               updateBook = {this.updateBook}
               book={book}
             />
-            <Button type="submit" variant="primary">
-              Update book
-            </Button>
           </Carousel.Caption>
 
         </Carousel.Item>
       )) : (<h3>No Books Found :</h3>)
     return (
       <>
-        <h2>Books From A Favorite Author &amp; Book Shelf</h2>
+        <h2>Books From A Favorite Author</h2>
         {/* <Route
               exact path="/about"
               element={<About/>}
