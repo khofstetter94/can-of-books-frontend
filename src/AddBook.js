@@ -26,7 +26,7 @@ class AddBook extends React.Component {
           getBooks={this.props.getBooks}
           postBook = {this.props.postBook}
         />
-        <button onClick={this.buttonClick}>Add book</button>
+        <button class="mt-5"onClick={this.buttonClick}>Add book</button>
       </div>
     );
   }

@@ -82,9 +82,9 @@ class BestBooks extends React.Component {
     /* TODO: render all the books in a Carousel */
     let carouselItems =
       this.state.books.length ? this.state.books.map((book, _id) => (
-        <Carousel.Item className="my-carousel-item" key={book._id}>
+        <Carousel.Item className="my-carousel-item mt-5" key={book._id}>
           <Image className="d-block item" src={book.img} alt={book.title} />
-          <Carousel.Caption className="caption">
+          <Carousel.Caption class="mt-5"className="caption" variant="dark">
             <h3>{book.title}</h3>
             <p>{book.description}</p>
             <p>Available in stores: {book.status ? 'yes' : 'no'} </p>
