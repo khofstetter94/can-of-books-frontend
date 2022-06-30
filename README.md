@@ -4,7 +4,8 @@
 **Version**: 1.0.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+- View a visual rendering of your favorite books! Including the title, description, book cover image, and whether or not you can find it in stores! You can add as many books as you please and also delete them if you want. You can also change the information if needed!
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
@@ -19,15 +20,55 @@
 
 ## Estimates
 
-Name of feature: Set up
+### Name of feature: Set-up
 
-Estimate of time needed to complete: 1 hour
+Estimate of time needed to complete: 1 hr
+
+Start time: 130 pm PST
+
+Finish time: 240 pm PST
+
+Actual time needed to complete: 1 hr and 10 minutes
+
+### Name of feature: Storage
+
+Estimate of time needed to complete: 2 hr
+
+Start time: 430 pm PST
+
+Finish time: 630 pm PST
+
+Actual time needed to complete: 2 hrs
+
+### Name of feature: Add images
+
+Estimate of time needed to complete: 3 hr
+
+Start time: 150 pm PST
+
+Finish time: 630 pm PST
+
+Actual time needed to complete: 2 hrs
+
+### Name of feature: Delete Images
+
+Estimate of time needed to complete: 3 hour
 
 Start time: 1:30PM
 
-Finish time: _____
+Finish time: 6:00PM
 
-Actual time needed to complete: _____
+Actual time needed to complete: 4.5 hours
+
+### Name of feature: Update Images
+
+Estimate of time needed to complete: 3 hour
+
+Start time: 1:30PM
+
+Finish time: 5:30PM
+
+Actual time needed to complete: 4 hours
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
