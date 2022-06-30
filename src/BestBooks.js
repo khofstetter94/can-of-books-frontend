@@ -95,6 +95,7 @@ class BestBooks extends React.Component {
               getBooks={this.props.getBooks}
               postBook={this.props.postBook}
               updateBook = {this.updateBook}
+              book={book}
             />
             <Button type="submit" variant="primary">
               Update book
